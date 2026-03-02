@@ -1,80 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UPDATED NOW</title>
-    <link rel="stylesheet" href="frontpage.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curt Kevin Portfolio</title>
+
+<style>
+
+/* GLOBAL */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* NAVBAR */
+nav {
+  background: #333;
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: #555;
+}
+
+/* HERO SECTION */
+.hero {
+  background: linear-gradient(135deg, #667eea, #14a5d6);
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  margin: 0 10px;
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* PRIMARY BUTTON */
+.primary {
+  background: white;
+  color: #667eea;
+}
+
+.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* SECONDARY BUTTON */
+.secondary {
+  border: 2px solid white;
+  color: white;
+}
+
+.secondary:hover {
+  background: white;
+  color: #667eea;
+  transform: translateY(-4px);
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 3rem 2rem;
+}
+
+/* SECTIONS */
+section {
+  margin-bottom: 4rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #667eea;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+/* ABOUT */
+.about-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #14a5d6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: #f4f4f4;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.project-card h3 {
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+/* SKILLS */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill {
+  background: #667eea;
+  color: white;
+  padding: 0.6rem 1.6rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill:hover {
+  transform: translateY(-5px);
+  background: #5563d6;
+  box-shadow: 0 8px 20px rgba(102,126,234,0.4);
+}
+
+/* CONTACT */
+.contact-info {
+  background: #f4f4f4;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.contact-info a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* SCROLL ANIMATION */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Curt Kevin Cubian</h1>
-        <p>Web developer</p>
-    </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="profile-img">CK</div>
-                <div class="about-text">
-                    <p>Hello! I'm a passionate web developer with a love for creating beautiful and functional websites. I specialize in front-end development and enjoy bringing creative ideas to life through code.</p>
-                    <p>With experience in modern web technologies, I'm always eager to learn new skills and take on challenging projects that push the boundaries of what's possible on the web.</p>
-                </div>
-            </div>
-        </section>
+<section class="hero fade-in">
+  <h1>Hi, I'm Curt Kevin</h1>
+  <p>Frontend Developer | UI Designer | Java Enthusiast</p>
+  <p>I build modern, responsive and user-focused web applications.</p>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>BookStore</h3>
-                    <p>A fully responsive online bookstore with user authentication, product browsing, and shopping cart functionality.</p>
-                    <p><strong>Technologies:</strong> HTML, CSS, JavaScript, PHP</p>
-                </div>
-                <div class="project-card">
-                    <h3>Portfolio Template</h3>
-                    <p>A modern portfolio template designed for creative professionals to showcase their work.</p>
-                    <p><strong>Technologies:</strong> HTML, CSS, Bootstrap</p>
-                </div>
-                <div class="project-card">
-                    <h3>Weather App</h3>
-                    <p>A weather application that displays current weather conditions and forecasts for any location.</p>
-                    <p><strong>Technologies:</strong> HTML, CSS, JavaScript, API</p>
-                </div>
-            </div>
-        </section>
+  <div class="hero-buttons">
+    <a href="#projects" class="btn primary">View Projects</a>
+    <a href="Curt_Kevin_CV.pdf" download class="btn secondary">Download CV</a>
+  </div>
+</section>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <span class="skill">HTML5</span>
-                <span class="skill">CSS3</span>
-                <span class="skill">JavaScript</span>
-                <span class="skill">Java</span>
-            </div>
-        </section>
+<div class="container">
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="contact-info">
-                <p><strong>Email:</strong> <a href="mailto:sungjinwoo095@gmail.com">sungjinwoo095@gmail.com</a></p>
-                <p><strong>Phone:</strong> +63 912 345 6789</p>
-                <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/sungjinwoo</a></p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/kevkies31" target="_blank">https://github.com/kevkies31</a></p>
-            </div>
-        </section>
+<section id="about" class="fade-in">
+  <h2>About Me</h2>
+  <div class="about-content">
+    <div class="profile-img">CK</div>
+    <div class="about-text">
+      <p>Passionate about building clean and modern web applications.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="fade-in">Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card fade-in">
+      <h3>BookStore</h3>
+      <p>Online bookstore with authentication and cart system.</p>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Curt kevin. All rights reserved.</p>
-    </footer>
+    <div class="project-card fade-in">
+      <h3>Portfolio Template</h3>
+      <p>Modern portfolio for creative professionals.</p>
+    </div>
+
+    <div class="project-card fade-in">
+      <h3>Weather App</h3>
+      <p>Displays real-time weather data using API.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="fade-in">
+  <h2>Skills</h2>
+  <div class="skills-container">
+    <span class="skill fade-in">HTML5</span>
+    <span class="skill fade-in">CSS3</span>
+    <span class="skill fade-in">JavaScript</span>
+    <span class="skill fade-in">Java</span>
+  </div>
+</section>
+
+<section id="contact" class="fade-in">
+  <h2>Contact</h2>
+  <div class="contact-info">
+    <p><strong>Email:</strong> sungjinwoo095@gmail.com</p>
+    <p><strong>GitHub:</strong> github.com/kevkies31</p>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Curt Kevin. All rights reserved.</p>
+</footer>
+
+<script>
+const faders = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+faders.forEach(fader => {
+  observer.observe(fader);
+});
+</script>
+
 </body>
 </html>
